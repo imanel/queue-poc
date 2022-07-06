@@ -7,5 +7,7 @@ bundle install --path vendor/bundle
 ## Run
 
 ```
-bundle exec {script}.rb
+docker-compose run --service-ports redis
+
+bundle exec ruby {script}.rb
 ```
