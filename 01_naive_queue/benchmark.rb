@@ -1,8 +1,8 @@
-require "redis"
+require 'redis'
 
 # Connect to Redis @ localhost
 redis = Redis.new
-list_name = "01_list"
+list_name = '01_list'
 benchmark_size = 10_000
 
 redis.del(list_name)
@@ -25,7 +25,7 @@ puts "Write: time taken: #{time_taken}s, #{rps.round} RPS."
 
 before_time = Time.now
 
-while redis.lpop(list_name) do
+while redis.lpop(list_name)
   # Do nothing
 end
 

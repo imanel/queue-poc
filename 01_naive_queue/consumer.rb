@@ -1,10 +1,12 @@
-require "redis"
+require 'redis'
 
 # Connect to Redis @ localhost
 redis = Redis.new
-list_name = "01_list"
+list_name = '01_list'
 
-while item = redis.lpop(list_name) do
+loop do
+  item = redis.blpop(list_name) # Returns [list_name, item], blocks while waiting for next item
+
   sleep 1
-  puts item
+  puts "Processed: #{item[1]}"
 end
